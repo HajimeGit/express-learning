@@ -8,7 +8,7 @@ This project demonstrates how to integrate the LiqPay payment gateway into an Ex
 ## How to use
 1. Clone the repo
 ``` bash
-git clone https://github.com/HajimeGit/express-liqpay-button.git
+git clone https://github.com/HajimeGit/express-learning.git
 ```
 
 2. Install dependencies
