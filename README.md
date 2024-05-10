@@ -16,8 +16,7 @@ git clone https://github.com/HajimeGit/express-liqpay-button.git
 npm install
 ```
 
-3. Set up .env
-   Set LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in .env file. See example.
+3. Set LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in .env file. See example.
 
 4. Start the express server
 ``` bash
