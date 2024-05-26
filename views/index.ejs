@@ -2,13 +2,38 @@
 <html>
 <head>
     <title>Express + LiyPay</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/scripts.js"></script>
+    <script src="/scroll/locomotive-scroll.js"></script>
 </head>
 <body>
-    <form action="/" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="tel" name="phone" placeholder="Phone">
-        <button type="submit">Send</button>
-    </form>
-    <div><%- body %></div>
+    <div data-scroll-container >
+        <div class="vh-100">
+            <div data-scroll data-scroll-repeat data-scroll-call="pageColor"
+                  data-scroll-id="white">
+                <form id="simple-form">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="tel" name="phone" placeholder="Phone">
+                    <button type="submit">Send</button>
+                </form>
+                <div class="hide" id="telegram">
+                    <a href="https://t.me/express_hajime_bot" target="_blank">Connect Telegram</a>
+                </div>
+                <div><%- liyPayButton %></div>
+            </div>
+        </div>
+
+        <div class="vh-100">
+            <div data-scroll data-scroll-speed="1" data-scroll-repeat data-scroll-call="pageColor"
+                  data-scroll-id="black">
+            </div>
+        </div>
+
+        <div class="vh-100">
+            <div data-scroll data-scroll-repeat data-scroll-call="pageColor"
+                  data-scroll-id="green">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

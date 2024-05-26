@@ -1,20 +1,46 @@
-const liqPay = require('liqpay-sdk-nodejs');
-require('dotenv').config();
+const LiqPay = require('liqpay-sdk-nodejs');
+const max = 1000000000;
 
-const publicKey = process.env.LIQPAY_PUBLIC_KEY;
-const privateKey = process.env.LIQPAY_PRIVATE_KEY;
+/**
+ * Initializes the LiqPay service.
+ *
+ * @returns {LiqPay}
+ */
+const initializeLiqPay = () => {
+    require('dotenv').config();
 
-const liqpay = new liqPay(publicKey, privateKey);
+    const publicKey = process.env.LIQPAY_PUBLIC_KEY;
+    const privateKey = process.env.LIQPAY_PRIVATE_KEY;
 
-const liqPayRedirectHtmlButton = liqpay.cnb_form({
-    'action': 'pay',
-    'amount': '1',
-    'currency': 'USD',
-    'description': 'description text',
-    'order_id': 'order_id_1',
-    'version': '3',
-    'result_url': 'http://localhost:3000',
-    'server_url': 'http://localhost:3000'
-});
+    return new LiqPay(publicKey, privateKey);
+}
 
-module.exports = liqPayRedirectHtmlButton;
+/**
+ * Gets the LiqPay redirect HTML button.
+ *
+ * @param {LiqPay} liqPay
+ *   The LiqPay instance.
+ * @param {number} amount
+ *   The amount to pay.
+ * @param {string} description
+ *   The description of the payment.
+ *
+ * @returns {string}
+ *   The HTML button.
+ */
+const getLiqPayRedirectHtmlButton = (liqPay, amount, description) => {
+    return liqPay.cnb_form({
+        action: 'pay',
+        amount,
+        currency: 'UAH',
+        description,
+        order_id: Math.floor(Math.random() * max),
+        version: '3',
+        result_url: 'http://localhost:3000',
+    });
+}
+
+module.exports = {
+    initializeLiqPay,
+    getLiqPayRedirectHtmlButton
+}
